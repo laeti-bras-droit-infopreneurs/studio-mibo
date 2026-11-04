@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>HospitalitIA · L'IA au service des hôteliers indépendants</title>
-<meta name="description" content="Laetitia, 30 ans dans l'hospitality, aide les hôteliers indépendants à gagner du temps grâce à l'IA. Diagnostic gratuit en 5 minutes.">
+<meta name="description" content="Laetitia, 30 ans dans l'hôtellerie, accompagne les hôteliers indépendants : visibilité, réservation directe et gestion tarifaire, toute l'année. Diagnostic gratuit en 5 minutes.">
 <meta property="og:title" content="L'IA ne remplace pas votre sourire · HospitalitIA">
 <meta property="og:description" content="Diagnostic gratuit en 5 minutes pour les hôteliers indépendants : vos 3 freins et 3 pistes pour gagner du temps.">
 <meta property="og:type" content="website">
@@ -82,7 +82,7 @@
 .smia .cadeau{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;margin-top:8px}
 .smia .cadeau svg{width:120px;height:auto}
 .smia .portrait{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start;margin-top:32px}
-.smia .portrait .photo{display:block;width:200px;height:auto}
+.smia .portrait .photo{display:block;width:200px;height:auto;border-radius:50%}
 .smia .portrait .deux{margin-top:0}
 .smia .final{text-align:center}
 .smia .final .arche{margin-inline:auto}
@@ -103,7 +103,7 @@
 /* Bannière d'accueil HospitalitIA (piste A) : texte réel + arche connectée en SVG.
    Mêmes proportions que l'ancienne image (851 x 315) sur ordinateur, empilée sur mobile. */
 .hb{position:relative;overflow:hidden;container-type:inline-size;aspect-ratio:851/315;background:#FFFFFF;border-radius:18px;box-shadow:0 8px 28px rgba(23,67,59,.10);font-family:'Outfit',system-ui,sans-serif;text-align:left}
-.hb .hb-txt{position:absolute;left:6.6%;top:50%;transform:translateY(-50%);width:60%}
+.hb .hb-txt{position:absolute;left:6.6%;top:50%;transform:translateY(-50%);width:50%}
 .hb .hb-k{display:block;font-size:max(11px,1.53cqw);line-height:1.3;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#B0532E;margin-bottom:1.9cqw}
 .hb .hb-titre{font-family:inherit;font-size:5.64cqw;line-height:1.08;font-weight:500;letter-spacing:-.01em;color:#17433B;margin:0;text-wrap:balance}
 .hb .hb-titre em{font-style:normal;color:#C8613A}
@@ -117,33 +117,179 @@
   .hb .hb-sous{font-size:15px;margin-top:10px}
   .hb .hb-arche{right:22px;bottom:-12px;height:128px}
 }
+
+/* Menu fixe en haut de page */
+html{scroll-behavior:smooth}
+.smia section[id]{scroll-margin-top:76px}
+.smia .entete{position:sticky;top:0;z-index:20;background:rgba(246,240,230,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--ligne);padding-inline:20px}
+.smia .entete .nav{margin:0 auto;padding-block:10px;flex-wrap:nowrap}
+.smia .entete .marque img{height:40px}
+.smia .nav-liens{display:flex;align-items:center;gap:6px 22px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.smia .nav-liens a{display:block;padding:8px 0;color:var(--olive);font-size:15px;line-height:22px;font-weight:500;text-decoration:none;white-space:nowrap}
+.smia .nav-liens a:hover{color:var(--terracotta)}
+.smia .menu-btn{display:none;background:none;border:1.5px solid var(--olive);border-radius:999px;color:var(--olive);font:500 15px/22px var(--sans);padding:9px 18px;min-height:44px;cursor:pointer}
+
+/* Accueil : texte et photo côte à côte, bénéfices sous le bouton */
+.smia .hero-grille{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center;margin-top:36px}
+.smia .hero-grille>*{min-width:0}
+.smia .hero-grille .lead{margin-top:0}
+.smia .benefices{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:10px}
+.smia .benefices li{display:flex;gap:12px;align-items:center;font-weight:500;color:var(--olive)}
+.smia .benefices svg{flex-shrink:0;width:24px;height:24px}
+
+/* Photos */
+.smia .visuel{display:block;margin:0;overflow:hidden;border-radius:18px;box-shadow:0 14px 36px rgba(23,67,59,.16);background:var(--olive-doux)}
+.smia .visuel img{display:block;width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.smia .visuel:hover img{transform:scale(1.04)}
+.smia .visuel-43{aspect-ratio:4/3}
+.smia .visuel-21{aspect-ratio:5/2;margin-top:28px}
+.smia .visuel-vivant img{animation:derive 18s ease-in-out infinite alternate}
+@keyframes derive{from{transform:scale(1)}to{transform:scale(1.07) translate(-1%,-1%)}}
+
+/* Checklist présentée en carte */
+.smia .cadeau-bande{padding-top:0}
+.smia .cadeau-carte{background:var(--carte);border:1px solid var(--ligne);border-radius:18px;padding:28px}
+
+/* Qui je suis : parcours */
+.smia .parcours-titre{margin-top:36px}
+.smia .parcours{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.smia .parcours li{display:flex;gap:12px;align-items:flex-start;background:var(--carte);border-radius:12px;padding:14px 16px;font-size:16px;line-height:24px}
+.smia .parcours svg{flex-shrink:0;width:24px;height:24px}
+
+/* Mes offres */
+.smia .offres-intro{margin-top:16px;color:var(--douce);font-size:18px;line-height:29px}
+.smia .entree{display:grid;grid-template-columns:1fr auto;gap:12px 40px;align-items:center;margin-top:28px;background:var(--olive);color:#fff;border-radius:18px;padding:30px 32px}
+.smia .entree h3{color:#fff;font-size:24px;line-height:30px}
+.smia .entree p{color:#E1EBE7}
+.smia .entree .prix-entree{color:#fff;font-size:24px;line-height:30px;font-weight:500;text-align:right}
+.smia .entree .prix-entree small{display:block;font-size:15px;line-height:22px;font-weight:400;color:#E1EBE7}
+.smia .formules{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px;align-items:stretch}
+.smia .formule{position:relative;display:flex;flex-direction:column;min-width:0;background:var(--carte);border:1px solid var(--ligne);border-radius:18px;padding:28px 24px;transition:transform .25s ease,box-shadow .25s ease}
+.smia .formule:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(23,67,59,.14)}
+.smia .formule h3{font-size:15px;line-height:22px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--terracotta)}
+.smia .formule .prix{margin-top:6px;color:var(--olive);font-size:38px;line-height:44px;font-weight:500}
+.smia .formule .prix small{font-size:17px;font-weight:400}
+.smia .formule .liste{margin-bottom:20px;font-size:16px;line-height:25px}
+.smia .formule .liste li::before{top:11px}
+.smia .formule .note{margin:0 0 20px;font-size:14px;line-height:22px;color:var(--douce)}
+.smia .formule .btn-ligne{margin-top:auto}
+.smia .btn-ligne{display:block;text-align:center;border:1.5px solid var(--olive);border-radius:999px;color:var(--olive);font:600 16px/22px var(--sans);text-decoration:none;padding:13px 20px}
+.smia .btn-ligne:hover{background:var(--olive);color:#fff}
+.smia .formule-phare{border:2px solid var(--terracotta);box-shadow:0 14px 32px rgba(176,83,46,.16)}
+.smia .formule-phare .btn-ligne{background:var(--terracotta);border-color:var(--terracotta);color:#fff}
+.smia .formule-phare .btn-ligne:hover{background:var(--terracotta-fonce);border-color:var(--terracotta-fonce)}
+.smia .pastille{position:absolute;top:-14px;left:24px;background:var(--terracotta);color:#fff;font-size:13px;line-height:18px;font-weight:600;border-radius:999px;padding:5px 14px}
+.smia .offres-mentions{margin-top:20px}
+
+.smia .entree-action{display:flex;flex-direction:column;gap:14px}
+.smia .entree .btn-ligne{border-color:#fff;color:#fff;white-space:nowrap}
+.smia .entree .btn-ligne:hover{background:#fff;color:var(--olive)}
+
+/* Note d'urgence avant les formules */
+.smia .urgence{margin-top:24px;background:var(--terracotta-doux);border-left:4px solid var(--terracotta);border-radius:0 12px 12px 0;padding:14px 18px;font-size:16px;line-height:25px}
+.smia .urgence strong{color:var(--terracotta-fonce);font-weight:600}
+
+/* Actualité et newsletter */
+.smia .actu{background:var(--olive);padding-block:48px}
+.smia .actu h2{color:#fff}
+.smia .actu p{margin-top:10px;color:#E1EBE7}
+.smia .actu-grille{display:flex;justify-content:space-between;align-items:center;gap:24px 40px;flex-wrap:wrap}
+.smia .actu-grille>div{flex:1 1 420px;min-width:0}
+.smia .actu .btn{flex-shrink:0;text-align:center}
+
+/* Comment ça se passe : 4 étapes */
+.smia .comment-tete{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+.smia .comment-tete>*{min-width:0}
+.smia .etapes-4{grid-template-columns:repeat(4,1fr)}
+
+/* Apparition douce au défilement (uniquement si JavaScript est actif) */
+.js .smia .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.js .smia .reveal.vu{opacity:1;transform:none}
+
+@media (max-width:980px){
+  .smia .entete .nav{flex-wrap:wrap;gap:0 16px}
+  .smia .entete nav{flex:1 0 100%}
+  .smia .etapes-4{grid-template-columns:repeat(2,1fr)}
+  .smia .formules{grid-template-columns:1fr;gap:24px}
+  .smia .hero-grille,.smia .comment-tete{grid-template-columns:1fr;gap:28px}
+  .js .smia .menu-btn{display:block}
+  .js .smia .nav-liens{display:none;flex:1 0 100%;flex-direction:column;align-items:stretch;gap:0;padding-top:6px}
+  .js .smia .nav-liens.ouvert{display:flex}
+  .smia .nav-liens a{padding:12px 4px;font-size:17px;border-top:1px solid var(--ligne)}
+}
+@media (max-width:560px){
+  .smia .etapes-4{grid-template-columns:1fr}
+  .smia .entree{grid-template-columns:1fr;padding:24px 22px}
+  .smia .entree .prix-entree{text-align:left}
+  .smia .entree-action{margin-top:6px}
+  .smia .visuel-21{aspect-ratio:16/10}
+  .smia .cadeau-carte{padding:22px}
+  /* Le tableau des tâches devient une liste sur téléphone */
+  .smia .tab{overflow:visible}
+  .smia table{min-width:0;display:block}
+  .smia thead{display:none}
+  .smia tbody,.smia tr,.smia td{display:block;width:auto}
+  .smia tr{padding:14px 16px;border-bottom:1px solid var(--ligne)}
+  .smia tr:last-child{border-bottom:0}
+  .smia td,.smia td:first-child{width:auto;padding:0;border-bottom:0}
+  .smia td+td{margin-top:6px;padding-left:44px;color:var(--douce)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .smia .visuel img,.smia .visuel-vivant img,.smia .formule{animation:none;transition:none}
+  .smia .visuel:hover img,.smia .formule:hover{transform:none}
+  .js .smia .reveal{opacity:1;transform:none;transition:none}
+}
 </style>
+<script>document.documentElement.classList.add('js')</script>
 
 <div class="smia">
-<header class="bande hero">
+<header class="entete">
   <div class="nav">
-    <a class="marque" href="/"><img src="/logo-hospitalitia.svg" alt="HospitalitIA, accueil" width="158" height="48"></a>
-    <a class="lien" href="#diagnostic">Faire le diagnostic</a>
+    <a class="marque" href="#accueil"><img src="/logo-hospitalitia.svg" alt="HospitalitIA, accueil" width="132" height="40"></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+    <nav aria-label="Menu principal">
+      <ul class="nav-liens" id="menu-principal">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#qui-je-suis">Qui je suis</a></li>
+        <li><a href="#offres">Mes offres</a></li>
+        <li><a href="#comment">Comment ça se passe</a></li>
+        <li><a href="#diagnostic">Diagnostic</a></li>
+      </ul>
+    </nav>
   </div>
+</header>
+
+<section class="bande hero" id="accueil">
   <div class="in">
     <div class="hb">
       <div class="hb-txt">
         <span class="hb-k">Diagnostic IA · Hospitalité</span>
         <h1 class="hb-titre">L'IA ne remplace pas votre <em>sourire.</em></h1>
-        <p class="hb-sous">Elle vous libère du temps pour mieux l'offrir.</p>
+        <p class="hb-sous">Je m'occupe de votre visibilité et de vos prix toute l'année. L'IA reste en coulisses, le sourire reste le vôtre.</p>
       </div>
       <img class="hb-arche" src="/arche-connectee.svg" alt="" width="248" height="264">
     </div>
-    <p class="lead">Avis, e-mails, devis, recrutement des saisonniers : une grande partie de votre semaine part dans les coulisses. Des outils simples peuvent la prendre en charge, et c'est vous qui gardez le dernier mot.</p>
-    <a class="btn" id="cta-haut" href="https://diagnostic.studio-mibo.com/">Faire mon diagnostic gratuit</a>
-    <p class="fine">5 minutes, aucune connaissance technique, résultat immédiat.</p>
+    <div class="hero-grille">
+      <div>
+        <p class="lead">Avis, e-mails, devis, recrutement des saisonniers : une grande partie de votre semaine part dans les coulisses. Des outils simples peuvent la prendre en charge, et c'est vous qui gardez le dernier mot.</p>
+        <a class="btn" id="cta-haut" href="https://diagnostic.studio-mibo.com/">Faire mon diagnostic gratuit</a>
+        <p class="fine">5 minutes, aucune connaissance technique, résultat immédiat.</p>
+        <ul class="benefices">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#E1EBE7"/><path d="M7 12.5l3.4 3.4L17 9" fill="none" stroke="#17433B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Plus de réservations directes</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#E1EBE7"/><path d="M7 12.5l3.4 3.4L17 9" fill="none" stroke="#17433B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Des prix ajustés à la demande</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#E1EBE7"/><path d="M7 12.5l3.4 3.4L17 9" fill="none" stroke="#17433B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Du temps retrouvé pour vos clients</li>
+        </ul>
+      </div>
+      <figure class="visuel visuel-43 visuel-vivant"><img src="/images/reception-800.jpg" srcset="/images/reception-800.jpg 800w, /images/reception-1400.jpg 1400w" sizes="(max-width:980px) 100vw, 460px" width="1400" height="1046" alt="Comptoir de réception d'un hôtel avec une sonnette en laiton et une clé de chambre, dans la lumière du matin" fetchpriority="high"></figure>
+    </div>
   </div>
-</header>
+</section>
 
 <section class="bande alt">
   <div class="in">
-    <span class="etiq">Pour qui</span>
-    <h2>Pour les hôteliers indépendants qui se méfient de l'IA, ou qui la croient réservée aux affiches</h2>
+    <span class="etiq">Vous vous reconnaissez ?</span>
+    <h2>Vous vous méfiez de l'IA, ou vous ne voyez pas à quoi elle pourrait vous servir ?</h2>
     <div class="deux">
       <p class="txt">Vous dirigez un hôtel, des chambres d'hôtes, un gîte ou une conciergerie. On vous parle d'intelligence artificielle partout, mais personne ne vous montre ce qu'elle change dans votre journée. Ici, on part de vos tâches réelles, pas de la technique.</p>
       <div>
@@ -164,7 +310,8 @@
     <span class="etiq">Ce qui peut être allégé</span>
     <h2>Les tâches de coulisses, une par une</h2>
     <p class="txt" style="margin-top:16px;color:var(--douce)">L'outil prépare un brouillon. Vous relisez, vous corrigez, vous envoyez. Voici quelques exemples parmi ceux du diagnostic.</p>
-    <div class="tab">
+    <figure class="visuel visuel-21 reveal"><img src="/images/coulisses-800.jpg" srcset="/images/coulisses-800.jpg 800w, /images/coulisses-1400.jpg 1400w" sizes="(max-width:980px) 100vw, 960px" width="1400" height="706" loading="lazy" alt="Bureau en coulisses d'un hôtel : ordinateur portable, carnet ouvert, tasse de café et trousseau de clés"></figure>
+    <div class="tab reveal">
       <table>
         <thead><tr><th>Tâche</th><th>Ce que l'outil prépare</th></tr></thead>
         <tbody>
@@ -180,22 +327,9 @@
   </div>
 </section>
 
-<section class="bande alt" id="diagnostic">
+<section class="bande cadeau-bande">
   <div class="in">
-    <span class="etiq">Comment ça se passe</span>
-    <h2>Un diagnostic gratuit, puis un échange si vous le souhaitez</h2>
-    <ol class="etapes">
-      <li><h3>Vous répondez</h3><p>Un questionnaire confidentiel de 5 minutes sur votre établissement, votre quotidien et vos doutes.</p></li>
-      <li><h3>Vous recevez votre pré-diagnostic</h3><p>Tout de suite : vos 3 freins principaux et 3 pistes pour gagner du temps, avec un message clair pour chacun.</p></li>
-      <li><h3>Nous en parlons</h3><p>Si vous le souhaitez, un échange autour d'un café pour choisir une première tâche à alléger. Sans engagement.</p></li>
-    </ol>
-    <p style="margin-top:32px"><a class="btn" id="cta-milieu" href="https://diagnostic.studio-mibo.com/">Commencer le diagnostic</a></p>
-    <p class="fine">Vos réponses restent anonymes, sauf si vous choisissez de laisser vos coordonnées à la fin.</p>
-  </div>
-</section>
-
-<section class="bande">
-  <div class="in">
+    <div class="cadeau-carte reveal">
     <span class="etiq">Offert après le diagnostic</span>
     <div class="cadeau">
       <!-- Illustration : carte d'accueil posée sur un oreiller -->
@@ -214,10 +348,11 @@
         <p class="txt" style="margin-top:16px;color:var(--douce)">De quoi commencer sans risque, avec une consigne prête à copier pour chaque tâche. Elle vous attend à la fin du diagnostic.</p>
       </div>
     </div>
+    </div>
   </div>
 </section>
 
-<section class="bande alt">
+<section class="bande alt" id="qui-je-suis">
   <div class="in">
     <span class="etiq">Qui je suis</span>
     <h2>Une voix qui connaît le métier</h2>
@@ -228,10 +363,105 @@
         <p class="txt">Avec HospitalitIA, j'aide des indépendants à se séparer des tâches sans valeur ajoutée pour se concentrer sur ce qu'ils font de mieux. Pour les hôteliers, cela veut dire retrouver du temps pour l'accueil.</p>
       </div>
     </div>
+    <h3 class="parcours-titre">Mon parcours</h3>
+    <ul class="parcours">
+      <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#FFFFFF" stroke="#17433B" stroke-width="1.5"/><path d="M7 12.5l3.4 3.4L17 9" fill="none" stroke="#B0532E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>16 ans de coordination d'un groupement d'hôteliers</li>
+      <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#FFFFFF" stroke="#17433B" stroke-width="1.5"/><path d="M7 12.5l3.4 3.4L17 9" fill="none" stroke="#B0532E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Inspectrice de meublés de tourisme certifiée</li>
+      <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#FFFFFF" stroke="#17433B" stroke-width="1.5"/><path d="M7 12.5l3.4 3.4L17 9" fill="none" stroke="#B0532E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Réceptionniste en hôtel 3 étoiles</li>
+      <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#FFFFFF" stroke="#17433B" stroke-width="1.5"/><path d="M7 12.5l3.4 3.4L17 9" fill="none" stroke="#B0532E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Responsable séjour en agence réceptive</li>
+      <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#FFFFFF" stroke="#17433B" stroke-width="1.5"/><path d="M7 12.5l3.4 3.4L17 9" fill="none" stroke="#B0532E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Content et community manager pour un channel manager</li>
+      <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#FFFFFF" stroke="#17433B" stroke-width="1.5"/><path d="M7 12.5l3.4 3.4L17 9" fill="none" stroke="#B0532E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Entrepreneure indépendante depuis 2022</li>
+    </ul>
   </div>
 </section>
 
-<section class="bande final">
+<section class="bande" id="offres">
+  <div class="in">
+    <span class="etiq">Accompagnement</span>
+    <h2>Mes offres pour les hôtels indépendants</h2>
+    <p class="txt offres-intro">Un accompagnement à l'année, même pour les établissements saisonniers : c'est hors saison que se prépare une bonne saison. Le montant est le même chaque mois, été comme hiver.</p>
+    <figure class="visuel visuel-21 reveal"><img src="/images/chambre-800.jpg" srcset="/images/chambre-800.jpg 800w, /images/chambre-1400.jpg 1400w" sizes="(max-width:980px) 100vw, 960px" width="1400" height="706" loading="lazy" alt="Chambre d'hôtel lumineuse en Périgord, fenêtre ouverte sur la campagne et rideau de lin"></figure>
+
+    <div class="entree reveal">
+      <div>
+        <h3>Plan d'action stratégique</h3>
+        <p style="margin-top:10px">Un bilan complet et une feuille de route claire : positionnement, réservation directe, fiche Google, calendrier de contenus, modèles de réponses aux avis. Déduit si vous choisissez un accompagnement annuel.</p>
+      </div>
+      <div class="entree-action"><p class="prix-entree">de 690 à 990 €<small>en une fois</small></p><a class="btn-ligne" href="mailto:contact@studio-mibo.com?subject=Plan%20d%27action%20strat%C3%A9gique">On en parle ensemble</a></div>
+    </div>
+
+    <p class="urgence reveal"><strong>Votre prochaine saison se joue maintenant.</strong> Chaque semaine qui passe, ce sont des réservations qui partent vers les plateformes, ou chez l'établissement voisin. <strong>J'accompagne au maximum 5 établissements à la fois.</strong></p>
+
+    <div class="formules">
+      <article class="formule reveal">
+        <h3>Essentiel</h3>
+        <p class="prix">497 €<small>/mois</small></p>
+        <ul class="liste">
+          <li>Réseaux sociaux</li>
+          <li>Newsletter saisonnière</li>
+          <li>Réponses aux avis</li>
+          <li>Mise à jour de la fiche Google</li>
+          <li>Bilan trimestriel</li>
+        </ul>
+        <a class="btn-ligne" href="mailto:contact@studio-mibo.com?subject=Formule%20Essentiel">On en parle ensemble</a>
+      </article>
+      <article class="formule formule-phare reveal">
+        <span class="pastille">Mon conseil</span>
+        <h3>Sérénité</h3>
+        <p class="prix">797 €<small>/mois</small></p>
+        <ul class="liste">
+          <li>Tout l'Essentiel</li>
+          <li>Gestion tarifaire : grille de prix, surveillance des concurrents, ajustements chaque semaine en saison</li>
+        </ul>
+        <a class="btn-ligne" href="mailto:contact@studio-mibo.com?subject=Formule%20S%C3%A9r%C3%A9nit%C3%A9">On en parle ensemble</a>
+      </article>
+      <article class="formule reveal">
+        <h3>Performance</h3>
+        <p class="prix">897 €<small>/mois</small></p>
+        <ul class="liste">
+          <li>Tout l'Essentiel</li>
+          <li>Gestion tarifaire automatisée avec l'outil PriceLabs : paramétrage, pilotage</li>
+          <li>Bilan chiffré chaque mois : taux de remplissage, prix moyen, revenu par chambre</li>
+        </ul>
+        <p class="note">L'abonnement à l'outil est souscrit au nom de l'établissement.</p>
+        <a class="btn-ligne" href="mailto:contact@studio-mibo.com?subject=Formule%20Performance">On en parle ensemble</a>
+      </article>
+    </div>
+    <p class="fine offres-mentions">Engagement de 12 mois, résiliable avec un préavis de 2 mois. Heures supplémentaires au-delà du volume prévu facturées à part. TVA non applicable, article 293 B du CGI.</p>
+  </div>
+</section>
+
+<section class="bande alt" id="comment">
+  <div class="in">
+    <div class="comment-tete">
+      <div>
+        <span class="etiq">Comment ça se passe</span>
+        <h2>Un diagnostic gratuit, puis un échange si vous le souhaitez</h2>
+      </div>
+      <figure class="visuel visuel-43 reveal"><img src="/images/terrasse-800.jpg" srcset="/images/terrasse-800.jpg 800w, /images/terrasse-1400.jpg 1400w" sizes="(max-width:980px) 100vw, 430px" width="1400" height="1046" loading="lazy" alt="Deux tasses de café, des madeleines et un carnet ouvert sur une table de terrasse ensoleillée"></figure>
+    </div>
+    <ol class="etapes etapes-4">
+      <li class="reveal"><h3>Le diagnostic gratuit en 5 minutes</h3><p>Un questionnaire confidentiel sur votre établissement, votre quotidien et vos doutes. Vous recevez tout de suite vos 3 freins principaux et 3 pistes pour gagner du temps.</p></li>
+      <li class="reveal"><h3>Un échange autour d'un café, sans engagement</h3><p>Si vous le souhaitez, nous regardons ensemble vos résultats et ce qui vous serait le plus utile.</p></li>
+      <li class="reveal"><h3>Le plan d'action</h3><p>Un bilan complet et une feuille de route claire pour votre établissement.</p></li>
+      <li class="reveal"><h3>L'accompagnement à l'année, avec un bilan régulier</h3><p>Je m'occupe de votre visibilité et de vos prix, et nous faisons le point régulièrement.</p></li>
+    </ol>
+    <p style="margin-top:32px"><a class="btn" id="cta-milieu" href="https://diagnostic.studio-mibo.com/">Commencer le diagnostic</a></p>
+    <p class="fine">Vos réponses restent anonymes, sauf si vous choisissez de laisser vos coordonnées à la fin.</p>
+  </div>
+</section>
+
+<section class="bande actu">
+  <div class="in actu-grille">
+    <div>
+      <h2>Vous voulez suivre l'actu tech des métiers de l'hospitalité ?</h2>
+      <p class="txt">Ma newsletter arrive bientôt : l'essentiel de l'actu, décrypté pour vous.</p>
+    </div>
+    <a class="btn" id="cta-newsletter" href="mailto:contact@studio-mibo.com?subject=Pr%C3%A9venez-moi%20du%20lancement%20de%20la%20newsletter">Prévenez-moi du lancement</a>
+  </div>
+</section>
+
+<section class="bande final" id="diagnostic">
   <div class="in">
     <img class="arche" src="/arche-connectee.svg" alt="" width="90" height="96">
     <h2>Cinq minutes pour savoir par où commencer</h2>
@@ -246,5 +476,27 @@
 </footer>
 </div>
 
+<script>
+/* Menu sur téléphone et apparition douce au défilement */
+(function () {
+  var btn = document.querySelector('.menu-btn');
+  var liens = document.getElementById('menu-principal');
+  function fermer() { liens.classList.remove('ouvert'); btn.setAttribute('aria-expanded', 'false'); btn.textContent = 'Menu'; }
+  btn.addEventListener('click', function () {
+    var ouvert = liens.classList.toggle('ouvert');
+    btn.setAttribute('aria-expanded', String(ouvert));
+    btn.textContent = ouvert ? 'Fermer' : 'Menu';
+  });
+  liens.addEventListener('click', function (e) { if (e.target.tagName === 'A') fermer(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fermer(); });
+
+  var blocs = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { blocs.forEach(function (b) { b.classList.add('vu'); }); return; }
+  var obs = new IntersectionObserver(function (entrees) {
+    entrees.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('vu'); obs.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -40px 0px' });
+  blocs.forEach(function (b) { obs.observe(b); });
+})();
+</script>
 </body>
 </html>
